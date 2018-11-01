@@ -64,6 +64,8 @@ public class Solver {
 		System.out.println("Possible mapping of Characters:\n" + this.keyUsed);
 		
 		Character instruction = '1';
+		this.frequencies.showCharacters();
+		
 		Scanner scanner = new Scanner(System.in);
 		
 		while(instruction != '0') {
