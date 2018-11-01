@@ -100,6 +100,9 @@ public class Solver {
 				this.showDigramsFrequency();
 				break;
 			case '7':
+				System.out.println("Key used\n" + this.keyUsed);
+				break;
+			case '8':
 				System.out.println("Found characters");
 				this.showFoundCharacters();
 				break;

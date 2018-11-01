@@ -17,7 +17,11 @@ public class Key {
 	public String encode(String input) {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0;i<input.length();i++) {
-			sb.append(encode.get(input.charAt(i)));
+			Character encoded = encode.get(input.charAt(i));
+			if(encoded!=null)
+				sb.append(encoded);
+			else
+				sb.append(input.charAt(i));
 		}
 		return sb.toString();
 	}
@@ -25,7 +29,11 @@ public class Key {
 	public String decode(String input) {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0;i<input.length();i++) {
-			sb.append(decode.get(input.charAt(i)));
+			Character decoded = decode.get(input.charAt(i));
+			if(decoded!=null)
+				sb.append(decode.get(input.charAt(i)));
+			else
+				sb.append(input.charAt(i));
 		}
 		return sb.toString();
 	}
