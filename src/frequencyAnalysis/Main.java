@@ -7,7 +7,7 @@ public class Main {
 	public static String sorted = "аоиетнрсвдклпмузјгбчшцжњфќхѓџљѕ"; 
 
 	public static void main(String[] args) throws IOException {
-		FileProcessor otherFile = new FileProcessor("dizngova.txt");
+		FileProcessor otherFile = new FileProcessor("gracija.txt");
 		FileProcessor myFile = new FileProcessor("my-text.txt");
 		CharSet cyrilic = new CharSet();
 		
