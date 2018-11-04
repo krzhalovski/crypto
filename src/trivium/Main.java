@@ -2,6 +2,10 @@ package trivium;
 
 public class Main {
 	public static void main(String [] args) {
+		String key = "10101010101010101010101010101010101010101010101010101010101010101010101010101010";
+		String IV = "01010101010101010101010101010101010101010101010101010101010101010101010101010101";
 		
+		State state = new State(key, IV);
+		System.out.println(state);
 	}
 }
