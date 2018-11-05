@@ -89,6 +89,20 @@ public class RotatingState {
 		this.bits.remove(this.bits.size()-1);
 	}
 	
+	public String generateNext32Hex() {
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0;i<128;i++)
+		{
+			if(generateNextBit()==true)
+				sb.append("1");
+			else
+				sb.append("0");
+		}
+		
+		return sb.toString();
+	}
+	
 	// Utility function for debugging
 	public void printState() {
 		bits.stream().forEachOrdered(i -> {if(i==true) System.out.print("1"); else System.out.print("0");});
