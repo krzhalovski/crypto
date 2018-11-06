@@ -35,7 +35,7 @@ public class RotatingState {
 		bits.addAll(key);
 		
 		// Filling the other 20 bits with false
-		for(int i = 0;i<20;i++) bits.add(false);
+		for(int i = 0;i<13;i++) bits.add(false);
 		
 		// Adding the IV 
 		for(int i = 0;i<80;i++) bits.add(IV.get(i));
@@ -63,24 +63,24 @@ public class RotatingState {
 	public boolean generateNextBit() {
 		
 		boolean a1 = this.bits.get(90) & this.bits.get(91);
-		boolean a2 = this.bits.get(181) & this.bits.get(182);
-		boolean a3 = this.bits.get(292) & this.bits.get(293);
+		boolean a2 = this.bits.get(174) & this.bits.get(175);
+		boolean a3 = this.bits.get(285) & this.bits.get(286);
 		
 		boolean t1 = this.bits.get(65) ^ this.bits.get(92);
-		boolean t2 = this.bits.get(168) ^ this.bits.get(183);
-		boolean t3 = this.bits.get(249) ^ this.bits.get(294);
+		boolean t2 = this.bits.get(161) ^ this.bits.get(176);
+		boolean t3 = this.bits.get(242) ^ this.bits.get(287);
 		
 		boolean res = t1 ^ t2 ^ t3;
 		
-		boolean s1 = a1 ^ this.bits.get(177) ^ t1;
-		boolean s2 = a2 ^ this.bits.get(270) ^ t2;
+		boolean s1 = a1 ^ this.bits.get(170) ^ t1;
+		boolean s2 = a2 ^ this.bits.get(263) ^ t2;
 		boolean s3 = a3 ^ this.bits.get(68) ^ t3;
 		
 		rotateState();
 		
 		this.bits.set(0,s3);
-		this.bits.set(100,s1);
-		this.bits.set(184, s2);
+		this.bits.set(93,s1);
+		this.bits.set(177, s2);
 		
 		return res;
 	}
