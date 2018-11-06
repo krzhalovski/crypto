@@ -11,7 +11,9 @@ public class Tester {
 	
 	public Tester() throws FileNotFoundException {
 		input = new File("src\\trivium\\test vectors.txt");
-		
+	}
+	
+	public void initiateTests() throws FileNotFoundException {
 		Scanner scanner = new Scanner(input);
 		String toProcess;
 		
@@ -107,6 +109,10 @@ public class Tester {
 		}
 		
 		return true;
+	}
+	
+	public void getStreamBoundaries() {
+		
 	}
 	
 }

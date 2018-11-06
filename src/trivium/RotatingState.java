@@ -7,6 +7,8 @@ public class RotatingState {
 	ArrayList<Boolean> key = new ArrayList<Boolean>();
 	ArrayList<Boolean> IV = new ArrayList<Boolean>();
 	
+	Converter converter = new Converter();
+	
 	public RotatingState(String key, String IV) {
 		for(int i = 0;i<80;i++) {
 			if(key.charAt(i) == '1') {
