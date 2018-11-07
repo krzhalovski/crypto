@@ -6,6 +6,7 @@ public class RotatingState {
 	ArrayList<Boolean> bits = new ArrayList<Boolean>();
 	ArrayList<Boolean> key = new ArrayList<Boolean>();
 	ArrayList<Boolean> IV = new ArrayList<Boolean>();
+	int generatedHexValues = 0;
 	
 	Converter converter = new Converter();
 	
@@ -102,6 +103,7 @@ public class RotatingState {
 				sb.append("0");
 		}
 		
+		this.generatedHexValues++;
 		return sb.toString();
 	}
 	
