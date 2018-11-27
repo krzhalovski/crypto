@@ -31,9 +31,9 @@ public class Converter {
 		return out.toString();
 	}
 	
-	public static String booleanToHex(boolean[] arr) {
+	public static String booleanToHex(boolean[] arr,int size) {
 		StringBuilder sb = new StringBuilder();
-		for(int i=0; i<arr.length;i++) {
+		for(int i=0; i<size;i++) {
 			if(arr[i]) sb.append("1");
 			else sb.append("0");
 		}

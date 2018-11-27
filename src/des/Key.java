@@ -85,6 +85,6 @@ public class Key {
 	}
 	
 	public String toString() {
-		return Converter.booleanToHex(bits);
+		return Converter.booleanToHex(bits,64);
 	}
 }
