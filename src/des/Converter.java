@@ -70,13 +70,13 @@ public class Converter {
 	private static Scanner openScanner(int option) {
 		File file;
 		if(option == 1) {
-			file = new File("C:\\Users\\Ana\\eclipse-workspace\\crypto\\src\\des\\D_boxes\\Initial.txt");
+			file = new File("src\\des\\D_boxes\\Initial.txt");
 		} else if (option == 2){
-			file = new File("C:\\Users\\Ana\\eclipse-workspace\\crypto\\src\\des\\D_boxes\\Final.txt");
+			file = new File("src\\des\\D_boxes\\Final.txt");
 		} else if (option == 3){
-			file = new File("C:\\Users\\Ana\\eclipse-workspace\\crypto\\src\\des\\D_boxes\\Parity.txt");
+			file = new File("src\\des\\D_boxes\\Parity.txt");
 		} else if (option == 4){
-			file = new File("C:\\Users\\Ana\\eclipse-workspace\\crypto\\src\\des\\D_boxes\\Compression.txt");
+			file = new File("src\\des\\D_boxes\\Compression.txt");
 		} else if (option == 5){
 			file = new File("src\\des\\D_boxes\\Selection.txt");
 		} else {
