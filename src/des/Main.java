@@ -14,7 +14,7 @@ public class Main {
 		 * Analyzer("0E329232EA6D0D73",in); analysis2.getEncryption();
 		 */
 
-		for (int i = 0; i < 16; i++) {
+		/*for (int i = 0; i < 16; i++) {
 			for (int k = 0; k < 4; k++) {
 				StringBuilder sb = new StringBuilder();
 				for (int j = 0; j < i; j++) {
@@ -28,10 +28,10 @@ public class Main {
 				Analyzer analysis3 = new Analyzer("0000000000000000", sb.toString());
 				analysis3.fullAnalysis();
 			}
-		}
+		}*/
 
-		/*Analyzer analysis3 = new Analyzer("0000000000000000", "0000000000000000");
-		analysis3.fullAnalysis();*/
+		Analyzer analysis3 = new Analyzer("1F1F1F1F0E0E0E0E", "94AEA8BD97D84ED9");
+		analysis3.fullAnalysis();
 
 	}
 }

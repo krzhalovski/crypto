@@ -111,6 +111,8 @@ public class DES {
 	}
 
 	public boolean[] sMap(boolean[] bit6, int s_box) {
+		System.out.print("S-Box" + (s_box+1) + ": ");
+		Converter.printBoolean(bit6);
 		boolean[] toReturn = new boolean[4];
 
 		boolean[] row = new boolean[2];

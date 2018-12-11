@@ -1,0 +1,589 @@
+2. Изгенерирајте си сите слаби клучеви за DES алгоритамот и покажете преку примери зошто овие клучеви не треба да се користат.
+Слабите клучеви не треба да се користат бидејќи генерираат 16 исти рундовски клучеви. Со тоа иако после една енкрипција 
+енкриптираниот текст изгледа безбеден, со двојна енкрипција се добива оригиналниот текст. Пример за тоа е даден најдоле.
+-> Постојат 4 слаби клучеви за DES Алгоритмот и тоа:
+
+a) 0101010101010101
+
+Round key 1: 000000000000
+Round key 2: 000000000000
+Round key 3: 000000000000
+Round key 4: 000000000000
+Round key 5: 000000000000
+Round key 6: 000000000000
+Round key 7: 000000000000
+Round key 8: 000000000000
+Round key 9: 000000000000
+Round key 10: 000000000000
+Round key 11: 000000000000
+Round key 12: 000000000000
+Round key 13: 000000000000
+Round key 14: 000000000000
+Round key 15: 000000000000
+Round key 16: 000000000000
+
+б) FEFEFEFEFEFEFEFE
+
+Round key 1: FFFFFFFFFFFF
+Round key 2: FFFFFFFFFFFF
+Round key 3: FFFFFFFFFFFF
+Round key 4: FFFFFFFFFFFF
+Round key 5: FFFFFFFFFFFF
+Round key 6: FFFFFFFFFFFF
+Round key 7: FFFFFFFFFFFF
+Round key 8: FFFFFFFFFFFF
+Round key 9: FFFFFFFFFFFF
+Round key 10: FFFFFFFFFFFF
+Round key 11: FFFFFFFFFFFF
+Round key 12: FFFFFFFFFFFF
+Round key 13: FFFFFFFFFFFF
+Round key 14: FFFFFFFFFFFF
+Round key 15: FFFFFFFFFFFF
+Round key 16: FFFFFFFFFFFF
+
+в) E0E0E0E0F1F1F1F1
+
+Round key 1: FFFFFF000000
+Round key 2: FFFFFF000000
+Round key 3: FFFFFF000000
+Round key 4: FFFFFF000000
+Round key 5: FFFFFF000000
+Round key 6: FFFFFF000000
+Round key 7: FFFFFF000000
+Round key 8: FFFFFF000000
+Round key 9: FFFFFF000000
+Round key 10: FFFFFF000000
+Round key 11: FFFFFF000000
+Round key 12: FFFFFF000000
+Round key 13: FFFFFF000000
+Round key 14: FFFFFF000000
+Round key 15: FFFFFF000000
+Round key 16: FFFFFF000000
+
+г) 1F1F1F1F0E0E0E0E
+
+Round key 1: 000000FFFFFF
+Round key 2: 000000FFFFFF
+Round key 3: 000000FFFFFF
+Round key 4: 000000FFFFFF
+Round key 5: 000000FFFFFF
+Round key 6: 000000FFFFFF
+Round key 7: 000000FFFFFF
+Round key 8: 000000FFFFFF
+Round key 9: 000000FFFFFF
+Round key 10: 000000FFFFFF
+Round key 11: 000000FFFFFF
+Round key 12: 000000FFFFFF
+Round key 13: 000000FFFFFF
+Round key 14: 000000FFFFFF
+Round key 15: 000000FFFFFF
+Round key 16: 000000FFFFFF
+
+Следи пример за енкрипција на 0000000000000000 со клучот 1F1F1F1F0E0E0E0E.
+По енкрипцијата го добиваме енкриптираниот текст 94AEA8BD97D84ED9 што изгледа навидум безбеден, но по енкриптирање
+на 94AEA8BD97D84ED9 со клучот 1F1F1F1F0E0E0E0E, го добиваме почетниот текст 0000000000000000.
+
+Analysing encryption of:
+0000000000000000
+Using the key:
+1F1F1F1F0E0E0E0E
+=========================================
+Round key 1: 000000FFFFFF
+Round key 2: 000000FFFFFF
+Round key 3: 000000FFFFFF
+Round key 4: 000000FFFFFF
+Round key 5: 000000FFFFFF
+Round key 6: 000000FFFFFF
+Round key 7: 000000FFFFFF
+Round key 8: 000000FFFFFF
+Round key 9: 000000FFFFFF
+Round key 10: 000000FFFFFF
+Round key 11: 000000FFFFFF
+Round key 12: 000000FFFFFF
+Round key 13: 000000FFFFFF
+Round key 14: 000000FFFFFF
+Round key 15: 000000FFFFFF
+Round key 16: 000000FFFFFF
+=========================================
+Converting the block of text 1: 0000000000000000
+Initial permutation: 0000000000000000
+=========================================
+S-Box1: 000000
+S-Box2: 000000
+S-Box3: 000000
+S-Box4: 000000
+S-Box5: 111111
+S-Box6: 111111
+S-Box7: 111111
+S-Box8: 111111
+=========================================
+Iteration number: 0
+left:  00000000
+right: F8DAFB9D
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 111111
+S-Box2: 110001
+S-Box3: 011011
+S-Box4: 110101
+S-Box5: 100000
+S-Box6: 001000
+S-Box7: 001100
+S-Box8: 000100
+=========================================
+Iteration number: 1
+left:  F8DAFB9D
+right: DC8CF107
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 111011
+S-Box2: 111001
+S-Box3: 010001
+S-Box4: 011001
+S-Box5: 100001
+S-Box6: 011101
+S-Box7: 011111
+S-Box8: 110000
+=========================================
+Iteration number: 2
+left:  DC8CF107
+right: 59EADF19
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101011
+S-Box2: 110011
+S-Box3: 111101
+S-Box4: 010101
+S-Box5: 100100
+S-Box6: 000001
+S-Box7: 011100
+S-Box8: 001101
+=========================================
+Iteration number: 3
+left:  59EADF19
+right: AC7EFD31
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110101
+S-Box2: 011000
+S-Box3: 001111
+S-Box4: 111101
+S-Box5: 100000
+S-Box6: 000101
+S-Box7: 011001
+S-Box8: 011100
+=========================================
+Iteration number: 4
+left:  AC7EFD31
+right: 51A6D827
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101010
+S-Box2: 100011
+S-Box3: 110100
+S-Box4: 001101
+S-Box5: 100100
+S-Box6: 001111
+S-Box7: 111011
+S-Box8: 110001
+=========================================
+Iteration number: 5
+left:  51A6D827
+right: 8474531D
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110000
+S-Box2: 001000
+S-Box3: 001110
+S-Box4: 101000
+S-Box5: 110101
+S-Box6: 011001
+S-Box7: 011100
+S-Box8: 000100
+=========================================
+Iteration number: 6
+left:  8474531D
+right: 1D374E75
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 100011
+S-Box2: 111010
+S-Box3: 100110
+S-Box4: 101110
+S-Box5: 010110
+S-Box6: 100011
+S-Box7: 110001
+S-Box8: 010101
+=========================================
+Iteration number: 7
+left:  1D374E75
+right: 63D2A2FC
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 001100
+S-Box2: 000111
+S-Box3: 111010
+S-Box4: 100101
+S-Box5: 101011
+S-Box6: 111010
+S-Box7: 100000
+S-Box8: 000111
+=========================================
+Iteration number: 8
+left:  63D2A2FC
+right: 46B32DEB
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101000
+S-Box2: 001101
+S-Box3: 010110
+S-Box4: 100110
+S-Box5: 011010
+S-Box6: 100100
+S-Box7: 000010
+S-Box8: 101001
+=========================================
+Iteration number: 9
+left:  46B32DEB
+right: 757B06D3
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101110
+S-Box2: 101010
+S-Box3: 101111
+S-Box4: 110110
+S-Box5: 011111
+S-Box6: 110010
+S-Box7: 100101
+S-Box8: 011001
+=========================================
+Iteration number: 10
+left:  757B06D3
+right: 40663F3C
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 001000
+S-Box2: 000000
+S-Box3: 001100
+S-Box4: 001100
+S-Box5: 111000
+S-Box6: 000001
+S-Box7: 011000
+S-Box8: 000111
+=========================================
+Iteration number: 11
+left:  40663F3C
+right: AB464507
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110101
+S-Box2: 010110
+S-Box3: 101000
+S-Box4: 001100
+S-Box5: 110111
+S-Box6: 110101
+S-Box7: 011111
+S-Box8: 110000
+=========================================
+Iteration number: 12
+left:  AB464507
+right: E17E586E
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 011100
+S-Box2: 000010
+S-Box3: 101111
+S-Box4: 111100
+S-Box5: 110100
+S-Box6: 001111
+S-Box7: 110010
+S-Box8: 100010
+=========================================
+Iteration number: 13
+left:  E17E586E
+right: A451294A
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 010100
+S-Box2: 001000
+S-Box3: 001010
+S-Box4: 100010
+S-Box5: 011010
+S-Box6: 101101
+S-Box7: 010110
+S-Box8: 101010
+=========================================
+Iteration number: 14
+left:  A451294A
+right: BF0EEE52
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 010111
+S-Box2: 111110
+S-Box3: 100001
+S-Box4: 011101
+S-Box5: 100010
+S-Box6: 100011
+S-Box7: 110101
+S-Box8: 011010
+=========================================
+Iteration number: 15
+left:  BF0EEE52
+right: E0B95B98
+Key used: 000000FFFFFF
+=========================================
+Final text: 94AEA8BD97D84ED9
+=========================================
+
+Analysing encryption of:
+94AEA8BD97D84ED9
+Using the key:
+1F1F1F1F0E0E0E0E
+=========================================
+Round key 1: 000000FFFFFF
+Round key 2: 000000FFFFFF
+Round key 3: 000000FFFFFF
+Round key 4: 000000FFFFFF
+Round key 5: 000000FFFFFF
+Round key 6: 000000FFFFFF
+Round key 7: 000000FFFFFF
+Round key 8: 000000FFFFFF
+Round key 9: 000000FFFFFF
+Round key 10: 000000FFFFFF
+Round key 11: 000000FFFFFF
+Round key 12: 000000FFFFFF
+Round key 13: 000000FFFFFF
+Round key 14: 000000FFFFFF
+Round key 15: 000000FFFFFF
+Round key 16: 000000FFFFFF
+=========================================
+Converting the block of text 1: 94AEA8BD97D84ED9
+Initial permutation: E0B95B98BF0EEE52
+=========================================
+S-Box1: 010111
+S-Box2: 111110
+S-Box3: 100001
+S-Box4: 011101
+S-Box5: 100010
+S-Box6: 100011
+S-Box7: 110101
+S-Box8: 011010
+=========================================
+Iteration number: 0
+left:  BF0EEE52
+right: A451294A
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 010100
+S-Box2: 001000
+S-Box3: 001010
+S-Box4: 100010
+S-Box5: 011010
+S-Box6: 101101
+S-Box7: 010110
+S-Box8: 101010
+=========================================
+Iteration number: 1
+left:  A451294A
+right: E17E586E
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 011100
+S-Box2: 000010
+S-Box3: 101111
+S-Box4: 111100
+S-Box5: 110100
+S-Box6: 001111
+S-Box7: 110010
+S-Box8: 100010
+=========================================
+Iteration number: 2
+left:  E17E586E
+right: AB464507
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110101
+S-Box2: 010110
+S-Box3: 101000
+S-Box4: 001100
+S-Box5: 110111
+S-Box6: 110101
+S-Box7: 011111
+S-Box8: 110000
+=========================================
+Iteration number: 3
+left:  AB464507
+right: 40663F3C
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 001000
+S-Box2: 000000
+S-Box3: 001100
+S-Box4: 001100
+S-Box5: 111000
+S-Box6: 000001
+S-Box7: 011000
+S-Box8: 000111
+=========================================
+Iteration number: 4
+left:  40663F3C
+right: 757B06D3
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101110
+S-Box2: 101010
+S-Box3: 101111
+S-Box4: 110110
+S-Box5: 011111
+S-Box6: 110010
+S-Box7: 100101
+S-Box8: 011001
+=========================================
+Iteration number: 5
+left:  757B06D3
+right: 46B32DEB
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101000
+S-Box2: 001101
+S-Box3: 010110
+S-Box4: 100110
+S-Box5: 011010
+S-Box6: 100100
+S-Box7: 000010
+S-Box8: 101001
+=========================================
+Iteration number: 6
+left:  46B32DEB
+right: 63D2A2FC
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 001100
+S-Box2: 000111
+S-Box3: 111010
+S-Box4: 100101
+S-Box5: 101011
+S-Box6: 111010
+S-Box7: 100000
+S-Box8: 000111
+=========================================
+Iteration number: 7
+left:  63D2A2FC
+right: 1D374E75
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 100011
+S-Box2: 111010
+S-Box3: 100110
+S-Box4: 101110
+S-Box5: 010110
+S-Box6: 100011
+S-Box7: 110001
+S-Box8: 010101
+=========================================
+Iteration number: 8
+left:  1D374E75
+right: 8474531D
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110000
+S-Box2: 001000
+S-Box3: 001110
+S-Box4: 101000
+S-Box5: 110101
+S-Box6: 011001
+S-Box7: 011100
+S-Box8: 000100
+=========================================
+Iteration number: 9
+left:  8474531D
+right: 51A6D827
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101010
+S-Box2: 100011
+S-Box3: 110100
+S-Box4: 001101
+S-Box5: 100100
+S-Box6: 001111
+S-Box7: 111011
+S-Box8: 110001
+=========================================
+Iteration number: 10
+left:  51A6D827
+right: AC7EFD31
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 110101
+S-Box2: 011000
+S-Box3: 001111
+S-Box4: 111101
+S-Box5: 100000
+S-Box6: 000101
+S-Box7: 011001
+S-Box8: 011100
+=========================================
+Iteration number: 11
+left:  AC7EFD31
+right: 59EADF19
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 101011
+S-Box2: 110011
+S-Box3: 111101
+S-Box4: 010101
+S-Box5: 100100
+S-Box6: 000001
+S-Box7: 011100
+S-Box8: 001101
+=========================================
+Iteration number: 12
+left:  59EADF19
+right: DC8CF107
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 111011
+S-Box2: 111001
+S-Box3: 010001
+S-Box4: 011001
+S-Box5: 100001
+S-Box6: 011101
+S-Box7: 011111
+S-Box8: 110000
+=========================================
+Iteration number: 13
+left:  DC8CF107
+right: F8DAFB9D
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 111111
+S-Box2: 110001
+S-Box3: 011011
+S-Box4: 110101
+S-Box5: 100000
+S-Box6: 001000
+S-Box7: 001100
+S-Box8: 000100
+=========================================
+Iteration number: 14
+left:  F8DAFB9D
+right: 00000000
+Key used: 000000FFFFFF
+=========================================
+S-Box1: 000000
+S-Box2: 000000
+S-Box3: 000000
+S-Box4: 000000
+S-Box5: 111111
+S-Box6: 111111
+S-Box7: 111111
+S-Box8: 111111
+=========================================
+Iteration number: 15
+left:  00000000
+right: 00000000
+Key used: 000000FFFFFF
+=========================================
+Final text: 0000000000000000
+=========================================
+
