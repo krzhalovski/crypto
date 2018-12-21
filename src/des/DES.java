@@ -54,6 +54,15 @@ public class DES {
 		}
 		return sb.toString();
 	}
+	
+	public String decryptText(String plainText) {
+		plainText = Converter.hexToBinary(plainText);
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < plainText.length(); i += 64) {
+			sb.append(decryptNext64Bits(plainText.substring(i, i + 64)));
+		}
+		return sb.toString();
+	}
 
 	public String encryptNext64Bits(String current) {
 		boolean initial[] = initialPermutation(current);
@@ -61,13 +70,24 @@ public class DES {
 		boolean left[] = Arrays.copyOfRange(initial, 0, 32);
 		boolean right[] = Arrays.copyOfRange(initial, 32, 64);
 
-		String afterRounds = initiateRound(left, right, 0, false);
+		String afterRounds = initiateRound(left, right, 0, 1);
+
+		return afterRounds;
+	}
+	
+	public String decryptNext64Bits(String current) {
+		boolean initial[] = initialPermutation(current);
+		
+		boolean left[] = Arrays.copyOfRange(initial, 0, 32);
+		boolean right[] = Arrays.copyOfRange(initial, 32, 64);
+
+		String afterRounds = initiateRound(left, right, 15, -1);
 
 		return afterRounds;
 	}
 
-	public String initiateRound(boolean[] left, boolean[] right, int iteration, boolean showInfo) {
-		if (iteration == 16) {
+	public String initiateRound(boolean[] left, boolean[] right, int iteration, int direction) {
+		if ( (iteration == 16 && direction == 1) || (iteration == -1 && direction == -1) ){
 			boolean[] finalPermutation = new boolean[64];
 			for (int i = 0; i < 32; i++) {
 				finalPermutation[i] = right[i];
@@ -77,22 +97,14 @@ public class DES {
 			finalPermutation = Converter.permutePlainText(finalPermutation, 2);
 			return Converter.booleanToHex(finalPermutation,64);
 		}
+		
 		boolean resLeft[] = right;
 		boolean resRight[] = feistel(right, this.roundKeys[iteration]);
 
 		for (int i = 0; i < 32; i++) {
 			resRight[i] ^= left[i];
 		}
-
-		if (showInfo) {
-			System.out.println("=========================================");
-			System.out.println("Iteration number: " + iteration);
-			System.out.println("left:  " + Converter.booleanToHex(resLeft,32));
-			System.out.println("right: " + Converter.booleanToHex(resRight,32));
-			System.out.println("Key used: " + Converter.booleanToHex(roundKeys[iteration],48));
-			System.out.println("=========================================");
-		}
-		return initiateRound(resLeft, resRight, iteration + 1, showInfo);
+		return initiateRound(resLeft, resRight, iteration + direction, direction);
 	}
 
 	public boolean[] sMagic(boolean block[]) {
@@ -111,8 +123,8 @@ public class DES {
 	}
 
 	public boolean[] sMap(boolean[] bit6, int s_box) {
-		System.out.print("S-Box" + (s_box+1) + ": ");
-		Converter.printBoolean(bit6);
+		//System.out.print("S-Box" + (s_box+1) + ": ");
+		//Converter.printBoolean(bit6);
 		boolean[] toReturn = new boolean[4];
 
 		boolean[] row = new boolean[2];

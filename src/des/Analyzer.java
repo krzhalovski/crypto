@@ -35,7 +35,7 @@ public class Analyzer {
 			boolean left[] = Arrays.copyOfRange(initial, 0, 32);
 			boolean right[] = Arrays.copyOfRange(initial, 32, 64);
 			
-			String finalPermutation = des.initiateRound(left, right, 0, true);
+			String finalPermutation = des.initiateRound(left, right, 0, 1);
 			
 			System.out.println("Final text: " + finalPermutation);
 			System.out.println("=========================================");
