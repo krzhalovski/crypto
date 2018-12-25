@@ -15,7 +15,7 @@ public class ECB {
 		StringBuilder sb = new StringBuilder();
 		
 		for(int i = 0;i<plaintext.length();i+=16) {
-			int end = Math.min(i+16, plaintext.length()-1);
+			int end = Math.min(i+16, plaintext.length());
 			String toEncrypt = plaintext.substring(i, end);
 			
 			if(end!=i+16) toEncrypt = fillBlock(toEncrypt);
@@ -29,7 +29,7 @@ public class ECB {
 		StringBuilder sb = new StringBuilder();
 		
 		for(int i = 0;i<encryptedText.length();i+=16) {
-			sb.append(des.decryptNext64Bits(Converter.hexToBinary(encryptedText)));
+			sb.append(des.decryptNext64Bits(Converter.hexToBinary(encryptedText.substring(i, i+16))));
 		}
 		
 		return sb.toString();
