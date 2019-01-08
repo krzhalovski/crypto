@@ -9,9 +9,9 @@ public class Main {
         String test = "";
         for (byte b : encrypted)
         {
-            test += Byte.toString(b);
+            test += Byte.toString(b) + " ";
         }
-        return test;
+        return test.trim();
     }
 
 	public static void main(String[] args) {
@@ -20,13 +20,11 @@ public class Main {
         System.out.println("Enter the plain text:");
         String s = sc.nextLine();
         System.out.println("Encrypting String: " + s);
-        System.out.println("String in Bytes: "
-                + bytesToString(s.getBytes()));
         byte[] encrypted = rsa.encrypt(s.getBytes());
+        System.out.println("Encrypted Message: " + bytesToString(encrypted));
         byte[] decrypted = rsa.decrypt(encrypted);
-        System.out.println("Decrypting Bytes: " + bytesToString(decrypted));
-        System.out.println("Decrypted String: " + new String(decrypted));
-        
+        System.out.println("Decrypted Message: " + new String(decrypted));
+        rsa.printParameters();
         sc.close();
 	}
 
